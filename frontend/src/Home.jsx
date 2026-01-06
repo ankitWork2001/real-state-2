@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import ContactPopup from "./components/ContactPopup";
 import StaticForm from "./components/StaticForm";
+import MobileBottomNav from "./components/MobileBottomNav";
 import heroImage1 from "./assets/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg";
 import heroImage2 from "./assets/jason-dent-w3eFhqXjkZE-unsplash.jpg";
 import heroImage3 from "./assets/dillon-kydd-2keCPb73aQY-unsplash.jpg";
@@ -787,6 +788,11 @@ function Home() {
         isOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
         title={popupTitle}
+      />
+
+      <MobileBottomNav
+        phoneNumber={PHONE_NUMBER}
+        onExpressInterest={() => handleInteraction("Express Your Interest")}
       />
     </div>
   );
