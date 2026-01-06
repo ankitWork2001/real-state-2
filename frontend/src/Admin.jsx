@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Admin.css';
 
+const BASE_API_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,7 +12,7 @@ const Admin = () => {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          'http://localhost:5000/api/users'
+          `${BASE_API_URL}/users`
         );
         setUsers(res.data.data);
         setLoading(false);

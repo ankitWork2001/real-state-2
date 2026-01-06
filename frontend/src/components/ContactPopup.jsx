@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./ContactPopup.css";
 
+const BASE_API_URL = import.meta.env.VITE_API_BASE_URL;
+
 const ContactPopup = ({ isOpen, onClose, title = "Get in Touch" }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -62,9 +64,9 @@ const ContactPopup = ({ isOpen, onClose, title = "Get in Touch" }) => {
     console.log("Form data:", formData);
 
     try {
-      console.log("Sending request to: http://localhost:5000/api/users/create");
+      console.log(`Sending request to: ${BASE_API_URL}/users/create`);
       const response = await axios.post(
-        "http://localhost:5000/api/users/create",
+        `${BASE_API_URL}/users/create`,
         formData,
         {
           headers: {
